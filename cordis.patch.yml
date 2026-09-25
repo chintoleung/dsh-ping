@@ -1,0 +1,25 @@
+# dsh-ping bundle patch: self-registers an INERT row (no credentials, no
+# listeners). Configure by overriding this row's config in the profile's
+# cordis.patch.yml — use !!js process.env refs, NOT "${ENV:...}" (${ENV:}
+# only expands during cold-boot config assembly; the hot-reload path passes
+# it through as a literal):
+#
+#   - id: dsh-ping
+#     config:
+#       telegram:
+#         botToken: !!js "process.env.DSH_PING_TG_TOKEN || ''"
+#         chatId: !!js "process.env.DSH_PING_TG_CHAT || ''"
+#
+# With empty telegram credentials the plugin logs one inert line and exits
+# apply() — it never registers listeners and never breaks startup.
+- insert:
+    - id: dsh-ping
+      name: 'dsh-ping'
+      config:
+        enabled: true
+        telegram: {}
+        events:
+          question: true
+          approval: true
+          turnEnd: true
+          agentError: false

@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  schedule:
+    - cron: '0 10 * * 1' # weekly DSH drift check (Monday 10:00 UTC)
+  workflow_dispatch:
+    inputs:
+      dsh-version:
+        description: 'DSH version/dist-tag for the compatibility canary'
+        required: false
+        default: 'next'
+
+jobs:
+  test:
+    # Zero native modules, zero runtime deps: the compatibility surface is
+    # just Node >= 22 (engines field), checked across its LTS band.
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Syntax check
+        run: node --check src/index.mjs
+      - name: Run tests
+        run: node --test "test/*.test.mjs"
+      - name: Verify zero runtime dependencies
+        run: |
+          node -e "const p=require('./package.json'); const deps=Object.keys(p.dependencies??{}); if(deps.length>0){console.error('runtime dependencies found:',deps); process.exit(1)} console.log('OK: zero runtime dependencies')"
+
+  # Real-DSH compatibility canary: boots actual DSH components with an
+  # offline model adapter and drives the plugin through live event
+  # semantics. Weekly + on demand, not per-push (npm install of the DSH
+  # tree takes ~40s).
+  dsh-compat:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run compatibility canary
+        run: node scripts/dsh-compat.mjs "${{ github.event.inputs.dsh-version || 'next' }}"

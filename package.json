@@ -1,0 +1,49 @@
+{
+  "name": "dsh-ping",
+  "version": "0.1.1",
+  "description": "Telegram notifications for native DSH questions, approval requests, and completed turns. Notification-only; no custom cards or answering flow.",
+  "type": "module",
+  "main": "src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chintoleung/dsh-ping.git"
+  },
+  "homepage": "https://github.com/chintoleung/dsh-ping#readme",
+  "bugs": {
+    "url": "https://github.com/chintoleung/dsh-ping/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "telegram",
+    "notifications"
+  ],
+  "files": [
+    "src/",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "test:dsh": "node scripts/dsh-compat.mjs",
+    "smoke:install": "node scripts/dsh-install-smoke.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "dshCompatibility": {
+    "canaryVerified": "0.1.7-rc.2",
+    "liveVerified": "0.1.7-rc.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
