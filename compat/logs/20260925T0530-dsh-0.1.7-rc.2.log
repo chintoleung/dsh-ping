@@ -1,0 +1,208 @@
+# dsh-ping verification run — 2026-09-25T05:30:02.552Z
+# node v24.21.0 · darwin 27.0.0 arm64
+# dsh target 0.1.7-rc.2 · smoke source github:chintoleung/dsh-ping#c10b480c0d98bcff8134402b2e48a2af00d8190a
+
+# syntax check src/index.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/dsh-compat.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/bump-compat-claim.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/dsh-install-smoke.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/verify-run.mjs — exit 0 (0.0s)
+
+
+# unit suite — exit 0 (2.3s)
+
+> dsh-ping@0.1.1 test
+> node --test test/*.test.mjs
+
+✔ a pinned version supplied alone is honored, not replaced by next (0.895875ms)
+✔ dist-tags supplied alone are honored (0.088125ms)
+✔ an unknown version string is passed through, never silently swapped (0.060792ms)
+✔ no positional defaults to next (0.06225ms)
+✔ --keep before the version (0.06775ms)
+✔ --keep after the version (0.062042ms)
+✔ --keep alone keeps the next default (0.06975ms)
+✔ --root consumes its directory value, not the version (0.077291ms)
+✔ --root without a version defaults to next (0.076917ms)
+✔ --root with --keep and a version (0.10575ms)
+✔ --root without a value is an error (0.107167ms)
+✔ two positionals are an error (0.050833ms)
+✔ unknown flags are an error (0.050417ms)
+✔ help requests short-circuit (0.050334ms)
+✔ outcomes without --results are rejected (139.035042ms)
+✔ a missing results file is rejected (117.49175ms)
+✔ stale results (testedCommit ≠ HEAD) are rejected (180.402333ms)
+✔ results dshVersion mismatch is rejected (124.551916ms)
+✔ a repo-relative evidence path that does not exist is rejected (126.478958ms)
+✔ declarations are forbidden alongside --results (127.516ms)
+✔ happy path: outcomes, counts, smoke, and README all derive from the results file (138.969083ms)
+✔ a failed smoke in the results derives status failed and advances nothing (235.711958ms)
+✔ not-run declarations publish pending without evidence (119.379041ms)
+✔ blocked is declarable for uncanaried releases (122.131083ms)
+✔ a dirty tracked tree is rejected (110.330625ms)
+✔ missing README markers are rejected, never bulldozed (164.327209ms)
+✔ same pair replaces in place; a new plugin commit appends history (385.622875ms)
+﹣ dsh compatibility canary (skipped: DSH_COMPAT_ROOT not set) (0.370458ms) # SKIP
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ excerpt collapses whitespace and clamps (0.745416ms)
+✔ turnEndInfo handles string and object reason kinds (0.443166ms)
+✔ normalizeSessionEventArgs accepts tuple and envelope shapes (0.108333ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] telegram sendMessage failed: network down
+✔ question ping: observer pings and passes the waterfall through untouched (3.933833ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: approval/turnEnd → telegram chat ***
+✔ question observer: telegram failure never breaks the waterfall (1.821875ms)
+✔ waterfall contract: a downstream synchronous throw propagates unchanged (0.405917ms)
+✔ waterfall contract: a downstream rejected promise propagates as the same object (0.186709ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ question disabled: no ping, pass-through still intact (1.577166ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end: completed sessions ping after debounce; subagent-origin and incomplete do not (1.992833ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end: ordinary fork (parentSession without subagent origin) still pings (0.422416ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end: duplicate replay of the same seq is deduped (1.661167ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end: duplicate arriving after the announce fired produces no second ping (2.978583ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end: replay of an announced seq cannot swallow a newer pending ping (2.944458ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end: debounce is independent across sessions (trailing per session) (1.447875ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end: a later event extends the trailing deadline (2.984583ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ exported apply(): default wiring works end-to-end with global fetch mocked (40.215625ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] telegram sendMessage failed after retry
+✔ sender: 503 then 200 retries once and succeeds (1.699459ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] telegram sendMessage failed: The operation was aborted due to timeout
+✔ sender: two consecutive 5xx responses exhaust the retry and drop with a warning (2.68675ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ sender: timeout-shaped abort errors follow the retry-then-drop path (3.305167ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd/agentError → telegram chat ***
+✔ approval/asked: instant ping with tool and reason, deduped by seq (1.564792ms)
+[dsh-ping] inert: telegram.botToken/chatId not configured; no listeners registered
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] telegram sendMessage failed: HTTP 403 (client error, dropped without retry)
+✔ agent/error: opt-in only (1.613166ms)
+✔ inert without credentials: no listeners, one warn line (0.138083ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ telegram 4xx: no retry (config error) (0.304125ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ config: debounceMs 0 is honored (immediate announce), not replaced by the default (1.332083ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ config: invalid debounceMs falls back to the default; negative clamps to 0 (5.420125ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ config: JS-coercion traps fall back to the default, never to 0 or 1 (20.079084ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ config: excerptChars clamps to [20, 2048] (3.051167ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] telegram sendMessage failed: HTTP 429 (rate-limited; dropped without retry)
+✔ sender: assembled messages are capped at Telegram’s 4,096-char hard limit (1.608ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ sender: HTTP 429 is labeled rate-limited and dropped without retry (0.288959ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] telegram sendMessage failed: fetch failed: https://api.telegram.org/bot***/sendMessage
+✔ sender: unread response bodies are cancelled (undici resource hygiene) (1.5745ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ logging: bot token never appears in warn output (URL-echoing errors are redacted) (1.785958ms)
+✔ armed line masks the chat id and omits the bot token entirely (0.161167ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ disposal: pending announce timers are cancelled and no further sends happen (1.405708ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ disposal: an in-flight send does not retry after disposal (3.895416ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ envelope-shape session/event also pings (1.81325ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ turn/end labels use tracked session/title events (1.558209ms)
+✔ title-less fallback strips the session- prefix from ids (1.491167ms)
+ℹ tests 65
+ℹ suites 0
+ℹ pass 64
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 2142.212542
+
+
+# real-DSH compatibility canary (dsh@0.1.7-rc.2) — exit 0 (36.1s)
+
+> dsh-ping@0.1.1 test:dsh
+> node scripts/dsh-compat.mjs 0.1.7-rc.2
+
+[dsh-compat] installing dsh@0.1.7-rc.2 + dsh-agent-loop-testkit@0.1.7-rc.2 into /var/folders/bb/_qvtnmwd2gncnxhbrf8v60300000gn/T/dsh-ping-compat-TxJtIN
+
+added 521 packages in 32s
+[dsh-compat] dsh 0.1.7-rc.2 · testkit 0.1.7-rc.2 · DSH_COMPAT_ROOT=/var/folders/bb/_qvtnmwd2gncnxhbrf8v60300000gn/T/dsh-ping-compat-TxJtIN
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval → telegram chat ***
+✔ real completion + title notify; subagent completion does not (38.826708ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ real approval request notifies without changing its decision (7.134ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] telegram sendMessage failed: Synthetic Telegram outage
+✔ question observer is global, prepended, and does not await delivery (6.57025ms)
+[dsh-ping] telegram sendMessage failed: Synthetic Telegram outage
+[dsh-ping] telegram sendMessage failed: Synthetic Telegram outage
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ downstream failures survive a Telegram outage unchanged (5.455625ms)
+[dsh-ping] armed: question/approval/turnEnd/agentError → telegram chat ***
+✔ real agent error: notification enabled=false (5.94375ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ real agent error: notification enabled=true (7.097792ms)
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+[dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+✔ unload clears pending work and listeners; reload does not duplicate (8.217166ms)
+✔ a runtime-root session with parent lineage still notifies (7.5315ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 186.711709
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+
+
+# installation smoke — exit 0 (3.1s)
+[smoke] host dsh 0.1.7-rc.2 · source github:chintoleung/dsh-ping#c10b480c0d98bcff8134402b2e48a2af00d8190a
+Packages are cloned from the content-addressable store to the virtual store.
+  Content-addressable store is at: /Users/chintoleung/Library/pnpm/store/v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 0, reused 0, downloaded 1, added 0
+
+dependencies:
++ dsh-ping github:chintoleung/dsh-ping#c10b480c0d98bcff8134402b2e48a2af00d8190a
+
+Packages: +1
++
+Progress: resolved 1, reused 0, downloaded 1, added 1, done
+Done in 1.5s using pnpm v11.23.0
+[smoke] PASS — installed, composed, HTTP 401 on http://127.0.0.1:64926, inert boot line present
+[smoke] boundaries: local boot smoke against the installed dsh host; no browser/live-Telegram coverage
+

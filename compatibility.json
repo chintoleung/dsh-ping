@@ -1,5 +1,29 @@
 {
   "schemaVersion": 1,
   "channel": "next",
-  "records": []
+  "records": [
+    {
+      "status": "passed",
+      "dshVersion": "0.1.7-rc.2",
+      "testkitVersion": "0.1.7-rc.2",
+      "pluginVersion": "0.1.1",
+      "pluginCommit": "c10b480c0d98bcff8134402b2e48a2af00d8190a",
+      "installRef": "github:chintoleung/dsh-ping#c10b480c0d98bcff8134402b2e48a2af00d8190a",
+      "node": "v24.21.0",
+      "platform": "darwin 27.0.0 arm64",
+      "unitTests": "passed",
+      "canary": "passed",
+      "verifiedAt": "2026-09-25T05:30:49.071Z",
+      "pluginTag": "v0.1.1",
+      "unitTestsPassed": 64,
+      "canaryChecksPassed": 8,
+      "smoke": "passed",
+      "results": "compat/logs/20260925T0530-dsh-0.1.7-rc.2.results.json",
+      "channelVersion": "0.1.7-rc.2",
+      "channelCheckedAt": "2026-09-25T05:30:49.071Z",
+      "evidence": "compat/logs/20260925T0530-dsh-0.1.7-rc.2.log"
+    }
+  ],
+  "channelVersion": "0.1.7-rc.2",
+  "channelCheckedAt": "2026-09-25T05:30:49.071Z"
 }

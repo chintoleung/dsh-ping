@@ -18,7 +18,36 @@ and approval decisions.
 [Configuration](#configuration)
 
 <!-- dsh-compat:start -->
+## DSH support at a glance
 
+**✅ Verified with DSH `0.1.7-rc.2`**
+
+_`next` as checked September 25, 2026 · 05:30 UTC · Plugin `c10b480`_
+
+| Check | Published result |
+|---|---|
+| Tracked release channel | `next` |
+| Channel resolved at publish | `0.1.7-rc.2` · checked September 25, 2026 · 05:30 UTC |
+| Tested plugin revision | `c10b480` |
+| Unit tests | 64 passed |
+| Real-DSH compatibility canary | 8 passed; none skipped |
+| Installation smoke | passed |
+| Verification time | September 25, 2026 · 05:30 UTC |
+| Test environment | Node.js v24.21.0 · darwin 27.0.0 arm64 |
+
+[Machine-readable compatibility][compatibility] ·
+[Verification log](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20260925T0530-dsh-0.1.7-rc.2.log)
+
+We track DSH's `next` channel through release monitoring and
+maintainer-run verification. DSH keeps its native question cards,
+answers, and approval handling; dsh-ping only sends notifications.
+
+"Verified with" identifies our published test result at the stated
+time. A newer upstream release remains unverified until its checks
+pass. npm's separate `latest` channel must be checked independently.
+
+This is maintainer-produced compatibility evidence, not a claim of
+independent dsh.so verification.
 <!-- dsh-compat:end -->
 
 ## Small on purpose
@@ -507,7 +536,33 @@ dsh-ping 负责提醒你。问题卡片、回答和审批决定，继续交给 D
 [供编码智能体使用](#供编码智能体使用)
 
 <!-- dsh-compat-zh:start -->
+## DSH 支持速览
 
+**✅ 已随 DSH `0.1.7-rc.2` 验证**
+
+_`next` 检查于 2026-09-25 05:30 UTC · 插件 `c10b480`_
+
+| 项目 | 已发布结果 |
+|---|---|
+| 跟踪的发布渠道 | `next` |
+| 发布时渠道解析 | `0.1.7-rc.2` · 检查于 2026-09-25 05:30 UTC |
+| 被测插件修订 | `c10b480` |
+| 单元测试 | 64 通过 |
+| 真实 DSH 兼容性 canary | 8 通过；无跳过 |
+| 安装冒烟测试 | 通过 |
+| 验证时间 | 2026-09-25 05:30 UTC |
+| 测试环境 | Node.js v24.21.0 · darwin 27.0.0 arm64 |
+
+[机器可读兼容性数据][compatibility] ·
+[验证日志](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20260925T0530-dsh-0.1.7-rc.2.log)
+
+我们通过发布监控与维护者执行的验证跟踪 DSH 的 `next` 渠道。
+DSH 保留原生问题卡片、回答与审批处理；dsh-ping 只负责通知。
+
+“已随 … 验证”指所述时间点发布的测试结果。更新的上游版本在检查
+通过前一律视为未验证。npm 单独的 `latest` 渠道需单独验证。
+
+这是维护者产出的兼容性证据，不代表 dsh.so 的独立验证。
 <!-- dsh-compat-zh:end -->
 
 ## 小而专一
