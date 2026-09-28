@@ -192,7 +192,7 @@ npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMExcep
 # installation smoke — exit 0 (3.1s)
 [smoke] host dsh 0.1.7-rc.2 · source github:chintoleung/dsh-ping#c10b480c0d98bcff8134402b2e48a2af00d8190a
 Packages are cloned from the content-addressable store to the virtual store.
-  Content-addressable store is at: /Users/chintoleung/Library/pnpm/store/v11
+  Content-addressable store is at: ~/Library/pnpm/store/v11
   Virtual store is at:             node_modules/.pnpm
 Progress: resolved 0, reused 0, downloaded 1, added 0
 
