@@ -38,7 +38,7 @@
   },
   "license": "MIT",
   "dshCompatibility": {
-    "canaryVerified": "0.1.7-rc.2",
+    "canaryVerified": "0.2.0-rc.1",
     "liveVerified": "0.1.7-rc.1"
   },
   "dsh": {
