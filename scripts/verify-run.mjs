@@ -25,11 +25,22 @@
 import { spawnSync } from 'node:child_process'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { release } from 'node:os'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const repo = dirname(dirname(fileURLToPath(import.meta.url)))
 const VERSION_RE = /^\d+\.\d+\.\d+(?:-[\w.]+)?$/
+
+// Home-directory prefixes carry the maintainer's username into published
+// verification logs; redact them at write time. Relative structure — and
+// therefore diagnostic meaning — survives; identity does not.
+const HOME_DIR_RE = /(?:\/Users\/|\/home\/)[^/\s'"`,;\]\)]+/g
+
+export function redactPersonalPaths(text) {
+  return String(text).replace(HOME_DIR_RE, '~')
+}
+
+function main() {
 
 const rawArgs = process.argv.slice(2)
 if (rawArgs.includes('--help') || rawArgs.includes('-h')) {
@@ -119,9 +130,12 @@ if (!skipSmoke) {
   phase('smoke', 'installation smoke', process.execPath, ['scripts/dsh-install-smoke.mjs', '--source', source])
 }
 
-writeFileSync(LOG, `${logLines.join('\n')}\n`)
+writeFileSync(LOG, redactPersonalPaths(logLines.join('\n')) + '\n')
 writeFileSync(RESULTS, `${JSON.stringify(results, null, 2)}\n`)
 console.log(`[verify] log: ${base}.log`)
 console.log(`[verify] results: ${base}.results.json`)
 console.log(`[verify] tested commit: ${sha}`)
 process.exit(failed ? 1 : 0)
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main()
