@@ -2,6 +2,9 @@
 
 English · [简体中文](#简体中文)
 
+[![dsh.so install · dsh 0.1.7-rc.2](https://www.dsh.so/badge/install/dsh-ping@0.1.7-rc.2.svg)](https://www.dsh.so/artifact/dsh-ping/)
+[![dsh.so risk](https://www.dsh.so/badge/dsh-ping.svg)](https://www.dsh.so/artifact/dsh-ping/)
+
 **Native DSH. Telegram pings. Nothing else.**
 
 Step away from DeepSeek Harness without missing a question, an approval
@@ -522,6 +525,9 @@ MIT — see [LICENSE](LICENSE).
 ---
 
 # 简体中文
+
+[![dsh.so install · dsh 0.1.7-rc.2](https://www.dsh.so/badge/install/dsh-ping@0.1.7-rc.2.svg)](https://www.dsh.so/artifact/dsh-ping/)]
+[![dsh.so risk](https://www.dsh.so/badge/dsh-ping.svg)](https://www.dsh.so/artifact/dsh-ping/)
 
 **原生 DSH 交互。Telegram 通知。仅此而已。**
 
