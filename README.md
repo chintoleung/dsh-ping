@@ -409,8 +409,10 @@ answerer, or swallow downstream failures.
 Other design choices:
 
 - **No service injection:** no `inject` declarations or DSH service API calls.
-- **No history reads:** session titles are learned passively from
-  `session/title` events.
+- **No history queries:** session titles come from `session/title` events —
+  live, plus a one-time fold of the already-attached session's in-memory
+  event log on first sight (cold-start recovery for resumed sessions).
+  No session store or disk reads.
 - **Bounded in-memory bookkeeping:** no runtime state files.
 - **Dedup before debounce:** replayed session events cannot cancel a newer
   pending completion notification.
@@ -474,8 +476,9 @@ state files created by the plugin on your machine.
 - **Observed, not pending:** a notification does not prove the request
   is still waiting.
 - **Best-effort delivery:** no durable queue or guaranteed delivery.
-- **Cold-start titles:** sessions titled before the plugin loaded may
-  appear as `#<short-id>` until a title is observed.
+- **Fallback titles:** if a session exposes no stored `session/title` event
+  and none arrives live, notifications use the `#<short-id>` fallback
+  (older host shapes without a session event log, or untitled sessions).
 - **No automatic upgrades:** dsh-ping does not change your DSH version.
 - **No blanket compatibility promise:** evidence applies to the recorded
   version/revision pair and tested integration scope.
@@ -896,7 +899,7 @@ Runner 安装 DSH 和匹配 testkit 时禁用安装脚本，
 其他设计选择：
 
 - 无 `inject` 声明，不调用 DSH 服务 API。
-- 不读取会话历史，通过 `session/title` 事件被动学习标题。
+- 不查询会话历史：标题来自 `session/title` 事件——实时事件，加上首次看到会话时对其已附带内存事件日志的一次性折叠（恢复被续开会话的冷启动标题）；不读取会话存储或磁盘。
 - 只使用有界的内存记录，不写运行时状态文件。
 - 会话事件先去重，再处理去抖，避免旧事件重放吞掉新的待发通知。
 - 销毁时取消待执行计时器，阻止新的发送与重试。

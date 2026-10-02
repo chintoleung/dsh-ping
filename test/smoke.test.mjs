@@ -529,6 +529,41 @@ test('turn/end labels use tracked session/title events', async () => {
   assert.match(fetch.calls[0].body.text, /✅ Done: Fix login bug \(turn 2\)/)
 })
 
+test('cold start: resumed session seeds its title from the stored log', async () => {
+  // Real hosts pass the SessionLog itself; on resume the stored title rides
+  // seed events that never re-publish on session/event, so the only live
+  // source is the log snapshot the session object already carries.
+  const resumed = {
+    id: 'session-49862c3c-ebbf-4841-a02a-f5cc6e1fd1c5',
+    header: {},
+    snapshotEvents: () => [
+      { type: 'session/title', seq: 13, data: { title: 'Business Direct keyword fix' } },
+      { type: 'turn/end', seq: 151, data: { turn: 1, reason: 'completed' } },
+    ],
+  }
+  const { fire, fetch, clock } = build()
+  fire('session/event', resumed, turnEnd(603, 6))
+  clock.advance(10)
+  await flush()
+  assert.equal(fetch.calls.length, 1)
+  assert.match(fetch.calls[0].body.text, /✅ Done: Business Direct keyword fix \(turn 6\)/)
+})
+
+test('live re-title overrides a seeded log title', async () => {
+  const session = {
+    id: 'session-abc123def456',
+    header: {},
+    snapshotEvents: () => [{ type: 'session/title', seq: 1, data: { title: 'Stale seed' } }],
+  }
+  const { fire, fetch, clock } = build()
+  fire('session/event', session, { type: 'session/title', seq: 40, data: { title: 'Fresh live title' } })
+  fire('session/event', session, turnEnd(41, 2))
+  clock.advance(10)
+  await flush()
+  assert.equal(fetch.calls.length, 1)
+  assert.match(fetch.calls[0].body.text, /✅ Done: Fresh live title \(turn 2\)/)
+})
+
 test('title-less fallback strips the session- prefix from ids', async () => {
   const { fire, fetch, clock } = build()
   fire('session/event', { id: 'session-abc123def456', header: {} }, turnEnd(50, 4))

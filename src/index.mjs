@@ -249,6 +249,25 @@ export function createPingPlugin(overrides = {}) {
     }
     const dedup = createDedup(512, 24 * 60 * 60 * 1000, now)
     const titles = createTitleTracker(256)
+    // Sessions resumed after a host/plugin (re)start never re-publish their
+    // historical session/title seed events, and the host session object
+    // carries no title — so fold each session's own stored log once, on first
+    // sight, to recover its last known title. Live session/title events keep
+    // precedence (they land after the seed attempt on the same event).
+    const seededTitles = new Set()
+    const seedTitleFromLog = (session) => {
+      const id = String(session?.id ?? '')
+      if (id === '' || titles.of(id) !== '' || seededTitles.has(id)) return
+      if (seededTitles.size >= 256) seededTitles.clear() // bounded: miss cache
+      seededTitles.add(id)
+      try {
+        if (typeof session?.snapshotEvents !== 'function') return
+        const events = session.snapshotEvents()
+        if (!Array.isArray(events)) return
+        const last = events.findLast((item) => isRecord(item) && item.type === 'session/title')
+        titles.remember(id, excerpt(isRecord(last?.data) ? last.data.title : '', 60))
+      } catch { /* seeding must never break the event being handled */ }
+    }
     const pendingTurnEnd = new Map()
 
     const armed = Object.entries(config.events).filter(([, on]) => on === true).map(([key]) => key).join('/')
@@ -263,10 +282,11 @@ export function createPingPlugin(overrides = {}) {
           const normalized = normalizeSessionEventArgs(args)
           if (normalized === undefined) return
           const { session, event } = normalized
+          seedTitleFromLog(session)
           if (event.type === 'session/title') {
             // Titles ride the same stream (session/title, data.title) — tracked
-            // passively for labeling; no ping. Cold start: sessions titled before
-            // this plugin loaded keep the #<short id> fallback until re-titled.
+            // passively for labeling; no ping. Historical titles arrive via the
+            // seed fold above; this branch keeps live re-titles authoritative.
             titles.remember(String(session?.id ?? ''), excerpt(isRecord(event.data) ? event.data.title : '', 60))
             return
           }

@@ -1,6 +1,6 @@
 {
   "name": "dsh-ping",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Telegram notifications for native DSH questions, approval requests, and completed turns. Notification-only; no custom cards or answering flow.",
   "type": "module",
   "main": "src/index.mjs",
