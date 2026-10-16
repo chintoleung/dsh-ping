@@ -1,0 +1,621 @@
+# dsh-ping verification run — 2026-10-16T13:35:17.226Z
+# node v22.22.3 · darwin 27.0.0 arm64
+# dsh target 0.2.1-alpha.5 · smoke source ~/workspace/dsh-ping
+
+# syntax check src/index.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/dsh-compat.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/bump-compat-claim.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/dsh-install-smoke.mjs — exit 0 (0.0s)
+
+
+# syntax check scripts/verify-run.mjs — exit 0 (0.0s)
+
+
+# unit suite — exit 0 (2.4s)
+
+> dsh-ping@0.1.2 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: a pinned version supplied alone is honored, not replaced by next
+ok 1 - a pinned version supplied alone is honored, not replaced by next
+  ---
+  duration_ms: 1.204959
+  type: 'test'
+  ...
+# Subtest: dist-tags supplied alone are honored
+ok 2 - dist-tags supplied alone are honored
+  ---
+  duration_ms: 0.165167
+  type: 'test'
+  ...
+# Subtest: an unknown version string is passed through, never silently swapped
+ok 3 - an unknown version string is passed through, never silently swapped
+  ---
+  duration_ms: 0.103917
+  type: 'test'
+  ...
+# Subtest: no positional defaults to next
+ok 4 - no positional defaults to next
+  ---
+  duration_ms: 0.053583
+  type: 'test'
+  ...
+# Subtest: --keep before the version
+ok 5 - --keep before the version
+  ---
+  duration_ms: 0.069333
+  type: 'test'
+  ...
+# Subtest: --keep after the version
+ok 6 - --keep after the version
+  ---
+  duration_ms: 0.059292
+  type: 'test'
+  ...
+# Subtest: --keep alone keeps the next default
+ok 7 - --keep alone keeps the next default
+  ---
+  duration_ms: 0.111875
+  type: 'test'
+  ...
+# Subtest: --root consumes its directory value, not the version
+ok 8 - --root consumes its directory value, not the version
+  ---
+  duration_ms: 0.102333
+  type: 'test'
+  ...
+# Subtest: --root without a version defaults to next
+ok 9 - --root without a version defaults to next
+  ---
+  duration_ms: 0.301375
+  type: 'test'
+  ...
+# Subtest: --root with --keep and a version
+ok 10 - --root with --keep and a version
+  ---
+  duration_ms: 0.348792
+  type: 'test'
+  ...
+# Subtest: --root without a value is an error
+ok 11 - --root without a value is an error
+  ---
+  duration_ms: 0.148292
+  type: 'test'
+  ...
+# Subtest: two positionals are an error
+ok 12 - two positionals are an error
+  ---
+  duration_ms: 0.045125
+  type: 'test'
+  ...
+# Subtest: unknown flags are an error
+ok 13 - unknown flags are an error
+  ---
+  duration_ms: 0.041916
+  type: 'test'
+  ...
+# Subtest: help requests short-circuit
+ok 14 - help requests short-circuit
+  ---
+  duration_ms: 0.0805
+  type: 'test'
+  ...
+# Subtest: outcomes without --results are rejected
+ok 15 - outcomes without --results are rejected
+  ---
+  duration_ms: 145.822209
+  type: 'test'
+  ...
+# Subtest: a missing results file is rejected
+ok 16 - a missing results file is rejected
+  ---
+  duration_ms: 124.848084
+  type: 'test'
+  ...
+# Subtest: stale results (testedCommit ≠ HEAD) are rejected
+ok 17 - stale results (testedCommit ≠ HEAD) are rejected
+  ---
+  duration_ms: 169.314292
+  type: 'test'
+  ...
+# Subtest: results dshVersion mismatch is rejected
+ok 18 - results dshVersion mismatch is rejected
+  ---
+  duration_ms: 135.1385
+  type: 'test'
+  ...
+# Subtest: a repo-relative evidence path that does not exist is rejected
+ok 19 - a repo-relative evidence path that does not exist is rejected
+  ---
+  duration_ms: 134.096042
+  type: 'test'
+  ...
+# Subtest: declarations are forbidden alongside --results
+ok 20 - declarations are forbidden alongside --results
+  ---
+  duration_ms: 137.205666
+  type: 'test'
+  ...
+# Subtest: happy path: outcomes, counts, smoke, and README all derive from the results file
+ok 21 - happy path: outcomes, counts, smoke, and README all derive from the results file
+  ---
+  duration_ms: 144.120709
+  type: 'test'
+  ...
+# Subtest: a failed smoke in the results derives status failed and advances nothing
+ok 22 - a failed smoke in the results derives status failed and advances nothing
+  ---
+  duration_ms: 249.421292
+  type: 'test'
+  ...
+# Subtest: not-run declarations publish pending without evidence
+ok 23 - not-run declarations publish pending without evidence
+  ---
+  duration_ms: 124.37825
+  type: 'test'
+  ...
+# Subtest: blocked is declarable for uncanaried releases
+ok 24 - blocked is declarable for uncanaried releases
+  ---
+  duration_ms: 121.132417
+  type: 'test'
+  ...
+# Subtest: a dirty tracked tree is rejected
+ok 25 - a dirty tracked tree is rejected
+  ---
+  duration_ms: 109.67575
+  type: 'test'
+  ...
+# Subtest: missing README markers are rejected, never bulldozed
+ok 26 - missing README markers are rejected, never bulldozed
+  ---
+  duration_ms: 168.012084
+  type: 'test'
+  ...
+# Subtest: same pair replaces in place; a new plugin commit appends history
+ok 27 - same pair replaces in place; a new plugin commit appends history
+  ---
+  duration_ms: 403.868792
+  type: 'test'
+  ...
+# Subtest: dsh compatibility canary (skipped: DSH_COMPAT_ROOT not set)
+ok 28 - dsh compatibility canary (skipped: DSH_COMPAT_ROOT not set) # SKIP
+  ---
+  duration_ms: 0.336375
+  type: 'test'
+  ...
+# Subtest: verify-run exports the redaction helper
+ok 29 - verify-run exports the redaction helper
+  ---
+  duration_ms: 1.042209
+  type: 'test'
+  ...
+# Subtest: redacts macOS home-directory prefixes, keeping the rest of the path
+ok 30 - redacts macOS home-directory prefixes, keeping the rest of the path
+  ---
+  duration_ms: 0.161083
+  type: 'test'
+  ...
+# Subtest: redacts Linux home-directory prefixes
+ok 31 - redacts Linux home-directory prefixes
+  ---
+  duration_ms: 0.057458
+  type: 'test'
+  ...
+# Subtest: redacts every occurrence on a line
+ok 32 - redacts every occurrence on a line
+  ---
+  duration_ms: 0.052708
+  type: 'test'
+  ...
+# Subtest: leaves non-home paths untouched
+ok 33 - leaves non-home paths untouched
+  ---
+  duration_ms: 0.057958
+  type: 'test'
+  ...
+# Subtest: handles a bare home directory with trailing punctuation
+ok 34 - handles a bare home directory with trailing punctuation
+  ---
+  duration_ms: 0.04375
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: excerpt collapses whitespace and clamps
+ok 35 - excerpt collapses whitespace and clamps
+  ---
+  duration_ms: 0.774667
+  type: 'test'
+  ...
+# Subtest: turnEndInfo handles string and object reason kinds
+ok 36 - turnEndInfo handles string and object reason kinds
+  ---
+  duration_ms: 0.4925
+  type: 'test'
+  ...
+# Subtest: normalizeSessionEventArgs accepts tuple and envelope shapes
+ok 37 - normalizeSessionEventArgs accepts tuple and envelope shapes
+  ---
+  duration_ms: 0.150917
+  type: 'test'
+  ...
+# Subtest: question ping: observer pings and passes the waterfall through untouched
+ok 38 - question ping: observer pings and passes the waterfall through untouched
+  ---
+  duration_ms: 4.455709
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] telegram sendMessage failed: network down
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: approval/turnEnd → telegram chat ***
+# Subtest: question observer: telegram failure never breaks the waterfall
+ok 39 - question observer: telegram failure never breaks the waterfall
+  ---
+  duration_ms: 2.441041
+  type: 'test'
+  ...
+# Subtest: waterfall contract: a downstream synchronous throw propagates unchanged
+ok 40 - waterfall contract: a downstream synchronous throw propagates unchanged
+  ---
+  duration_ms: 0.419209
+  type: 'test'
+  ...
+# Subtest: waterfall contract: a downstream rejected promise propagates as the same object
+ok 41 - waterfall contract: a downstream rejected promise propagates as the same object
+  ---
+  duration_ms: 0.274209
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: question disabled: no ping, pass-through still intact
+ok 42 - question disabled: no ping, pass-through still intact
+  ---
+  duration_ms: 0.601917
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end: completed sessions ping after debounce; subagent-origin and incomplete do not
+ok 43 - turn/end: completed sessions ping after debounce; subagent-origin and incomplete do not
+  ---
+  duration_ms: 2.275625
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end: ordinary fork (parentSession without subagent origin) still pings
+ok 44 - turn/end: ordinary fork (parentSession without subagent origin) still pings
+  ---
+  duration_ms: 0.688917
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end: duplicate replay of the same seq is deduped
+ok 45 - turn/end: duplicate replay of the same seq is deduped
+  ---
+  duration_ms: 1.815959
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end: duplicate arriving after the announce fired produces no second ping
+ok 46 - turn/end: duplicate arriving after the announce fired produces no second ping
+  ---
+  duration_ms: 3.306792
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end: replay of an announced seq cannot swallow a newer pending ping
+ok 47 - turn/end: replay of an announced seq cannot swallow a newer pending ping
+  ---
+  duration_ms: 3.12925
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end: debounce is independent across sessions (trailing per session)
+ok 48 - turn/end: debounce is independent across sessions (trailing per session)
+  ---
+  duration_ms: 0.539959
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end: a later event extends the trailing deadline
+ok 49 - turn/end: a later event extends the trailing deadline
+  ---
+  duration_ms: 3.182458
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: exported apply(): default wiring works end-to-end with global fetch mocked
+ok 50 - exported apply(): default wiring works end-to-end with global fetch mocked
+  ---
+  duration_ms: 42.132167
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] telegram sendMessage failed after retry
+# Subtest: sender: 503 then 200 retries once and succeeds
+ok 51 - sender: 503 then 200 retries once and succeeds
+  ---
+  duration_ms: 2.98775
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] telegram sendMessage failed: The operation was aborted due to timeout
+# Subtest: sender: two consecutive 5xx responses exhaust the retry and drop with a warning
+ok 52 - sender: two consecutive 5xx responses exhaust the retry and drop with a warning
+  ---
+  duration_ms: 2.927625
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: sender: timeout-shaped abort errors follow the retry-then-drop path
+ok 53 - sender: timeout-shaped abort errors follow the retry-then-drop path
+  ---
+  duration_ms: 3.028791
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd/agentError → telegram chat ***
+# Subtest: approval/asked: instant ping with tool and reason, deduped by seq
+ok 54 - approval/asked: instant ping with tool and reason, deduped by seq
+  ---
+  duration_ms: 1.621125
+  type: 'test'
+  ...
+# [dsh-ping] inert: telegram.botToken/chatId not configured; no listeners registered
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] telegram sendMessage failed: HTTP 403 (client error, dropped without retry)
+# Subtest: agent/error: opt-in only
+ok 55 - agent/error: opt-in only
+  ---
+  duration_ms: 2.108792
+  type: 'test'
+  ...
+# Subtest: inert without credentials: no listeners, one warn line
+ok 56 - inert without credentials: no listeners, one warn line
+  ---
+  duration_ms: 0.132625
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: telegram 4xx: no retry (config error)
+ok 57 - telegram 4xx: no retry (config error)
+  ---
+  duration_ms: 1.712417
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: config: debounceMs 0 is honored (immediate announce), not replaced by the default
+ok 58 - config: debounceMs 0 is honored (immediate announce), not replaced by the default
+  ---
+  duration_ms: 1.646042
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: config: invalid debounceMs falls back to the default; negative clamps to 0
+ok 59 - config: invalid debounceMs falls back to the default; negative clamps to 0
+  ---
+  duration_ms: 5.622667
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: config: JS-coercion traps fall back to the default, never to 0 or 1
+ok 60 - config: JS-coercion traps fall back to the default, never to 0 or 1
+  ---
+  duration_ms: 21.934042
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: config: excerptChars clamps to [20, 2048]
+ok 61 - config: excerptChars clamps to [20, 2048]
+  ---
+  duration_ms: 3.090584
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] telegram sendMessage failed: HTTP 429 (rate-limited; dropped without retry)
+# Subtest: sender: assembled messages are capped at Telegram’s 4,096-char hard limit
+ok 62 - sender: assembled messages are capped at Telegram’s 4,096-char hard limit
+  ---
+  duration_ms: 1.6285
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: sender: HTTP 429 is labeled rate-limited and dropped without retry
+ok 63 - sender: HTTP 429 is labeled rate-limited and dropped without retry
+  ---
+  duration_ms: 1.656042
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] telegram sendMessage failed: fetch failed: https://api.telegram.org/bot***/sendMessage
+# Subtest: sender: unread response bodies are cancelled (undici resource hygiene)
+ok 64 - sender: unread response bodies are cancelled (undici resource hygiene)
+  ---
+  duration_ms: 1.6175
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: logging: bot token never appears in warn output (URL-echoing errors are redacted)
+ok 65 - logging: bot token never appears in warn output (URL-echoing errors are redacted)
+  ---
+  duration_ms: 2.883
+  type: 'test'
+  ...
+# Subtest: armed line masks the chat id and omits the bot token entirely
+ok 66 - armed line masks the chat id and omits the bot token entirely
+  ---
+  duration_ms: 0.167375
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: disposal: pending announce timers are cancelled and no further sends happen
+ok 67 - disposal: pending announce timers are cancelled and no further sends happen
+  ---
+  duration_ms: 1.788375
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: disposal: an in-flight send does not retry after disposal
+ok 68 - disposal: an in-flight send does not retry after disposal
+  ---
+  duration_ms: 3.407792
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: envelope-shape session/event also pings
+ok 69 - envelope-shape session/event also pings
+  ---
+  duration_ms: 1.743292
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: turn/end labels use tracked session/title events
+ok 70 - turn/end labels use tracked session/title events
+  ---
+  duration_ms: 0.341209
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: cold start: resumed session seeds its title from the stored log
+ok 71 - cold start: resumed session seeds its title from the stored log
+  ---
+  duration_ms: 1.535916
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: live re-title overrides a seeded log title
+ok 72 - live re-title overrides a seeded log title
+  ---
+  duration_ms: 1.530208
+  type: 'test'
+  ...
+# Subtest: title-less fallback strips the session- prefix from ids
+ok 73 - title-less fallback strips the session- prefix from ids
+  ---
+  duration_ms: 1.518166
+  type: 'test'
+  ...
+1..73
+# tests 73
+# suites 0
+# pass 72
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 2220.426458
+
+
+# real-DSH compatibility canary (dsh@0.2.1-alpha.5) — exit 0 (50.8s)
+
+> dsh-ping@0.1.2 test:dsh
+> node scripts/dsh-compat.mjs 0.2.1-alpha.5
+
+[dsh-compat] installing dsh@0.2.1-alpha.5 + dsh-agent-loop-testkit@0.2.1-alpha.5 into /var/folders/bb/_qvtnmwd2gncnxhbrf8v60300000gn/T/dsh-ping-compat-tTw25s
+
+added 614 packages in 42s
+[dsh-compat] dsh 0.2.1-alpha.5 · testkit 0.2.1-alpha.5 · DSH_COMPAT_ROOT=/var/folders/bb/_qvtnmwd2gncnxhbrf8v60300000gn/T/dsh-ping-compat-tTw25s
+TAP version 13
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval → telegram chat ***
+# Subtest: real completion + title notify; subagent completion does not
+ok 1 - real completion + title notify; subagent completion does not
+  ---
+  duration_ms: 45.59225
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: real approval request notifies without changing its decision
+ok 2 - real approval request notifies without changing its decision
+  ---
+  duration_ms: 8.014459
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] telegram sendMessage failed: Synthetic Telegram outage
+# Subtest: question observer is global, prepended, and does not await delivery
+ok 3 - question observer is global, prepended, and does not await delivery
+  ---
+  duration_ms: 5.895458
+  type: 'test'
+  ...
+# [dsh-ping] telegram sendMessage failed: Synthetic Telegram outage
+# [dsh-ping] telegram sendMessage failed: Synthetic Telegram outage
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: downstream failures survive a Telegram outage unchanged
+ok 4 - downstream failures survive a Telegram outage unchanged
+  ---
+  duration_ms: 5.561917
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd/agentError → telegram chat ***
+# Subtest: real agent error: notification enabled=false
+ok 5 - real agent error: notification enabled=false
+  ---
+  duration_ms: 7.864458
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: real agent error: notification enabled=true
+ok 6 - real agent error: notification enabled=true
+  ---
+  duration_ms: 6.048083
+  type: 'test'
+  ...
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# [dsh-ping] armed: question/approval/turnEnd → telegram chat ***
+# Subtest: unload clears pending work and listeners; reload does not duplicate
+ok 7 - unload clears pending work and listeners; reload does not duplicate
+  ---
+  duration_ms: 9.265875
+  type: 'test'
+  ...
+# Subtest: a runtime-root session with parent lineage still notifies
+ok 8 - a runtime-root session with parent lineage still notifies
+  ---
+  duration_ms: 9.324084
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 266.157208
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+
+
+# installation smoke — exit 0 (2.5s)
+[smoke] host dsh 0.2.1-alpha.2 · source ~/workspace/dsh-ping
+
+dependencies:
++ dsh-ping link:~/workspace/dsh-ping
+
+Already up to date
+Done in 324ms using pnpm v11.23.0
+[smoke] PASS — installed, composed, HTTP 401 on http://127.0.0.1:50786, inert boot line present
+[smoke] boundaries: local boot smoke against the installed dsh host; no browser/live-Telegram coverage
+
