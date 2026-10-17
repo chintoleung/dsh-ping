@@ -4,6 +4,24 @@
   "records": [
     {
       "status": "passed",
+      "dshVersion": "0.2.1-rc.2",
+      "testkitVersion": "0.2.1-rc.2",
+      "pluginVersion": "0.1.2",
+      "pluginCommit": "b3a9837a78d3e7669be7717a949600cd62a185a6",
+      "installRef": "github:chintoleung/dsh-ping#b3a9837a78d3e7669be7717a949600cd62a185a6",
+      "node": "v22.22.3",
+      "platform": "darwin 27.0.0 arm64",
+      "unitTests": "passed",
+      "canary": "passed",
+      "verifiedAt": "2026-10-17T09:35:58.055Z",
+      "smoke": "passed",
+      "results": "compat/logs/20261017T0934-dsh-0.2.1-rc.2.results.json",
+      "channelVersion": "0.2.1-rc.2",
+      "channelCheckedAt": "2026-10-17T09:35:58.055Z",
+      "evidence": "compat/logs/20261017T0934-dsh-0.2.1-rc.2.log"
+    },
+    {
+      "status": "passed",
       "dshVersion": "0.2.1-rc.1",
       "testkitVersion": "0.2.1-rc.1",
       "pluginVersion": "0.1.2",
@@ -199,6 +217,6 @@
       "evidence": "compat/logs/20260925T0530-dsh-0.1.7-rc.2.log"
     }
   ],
-  "channelVersion": "0.2.1-rc.1",
-  "channelCheckedAt": "2026-10-17T04:36:33.003Z"
+  "channelVersion": "0.2.1-rc.2",
+  "channelCheckedAt": "2026-10-17T09:35:58.055Z"
 }
