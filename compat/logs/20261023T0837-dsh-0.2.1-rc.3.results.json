@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "testedCommit": "4e8bdafe00cb24060b3cbe6e083263c69c94a6eb",
+  "dshVersion": "0.2.1-rc.3",
+  "executedAt": "2026-10-23T08:37:10.203Z",
+  "node": "v22.22.3",
+  "platform": "darwin 27.0.0 arm64",
+  "syntaxChecks": {
+    "status": "passed"
+  },
+  "unitTests": {
+    "status": "passed"
+  },
+  "canary": {
+    "status": "passed"
+  },
+  "installedDshVersion": "0.2.1-rc.3",
+  "testkitVersion": "0.2.1-rc.3",
+  "smoke": {
+    "status": "passed"
+  }
+}
