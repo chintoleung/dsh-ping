@@ -27,23 +27,23 @@ and approval decisions.
 <!-- dsh-compat:start -->
 ## DSH support at a glance
 
-**✅ Verified with DSH `0.2.2-alpha.2`**
+**✅ Verified with DSH `0.2.1-rc.5`**
 
-_`next` as checked October 27, 2026 · 19:35 UTC · Plugin `e869771`_
+_`next` as checked October 29, 2026 · 14:37 UTC · Plugin `2d0f537`_
 
 | Check | Published result |
 |---|---|
 | Tracked release channel | `next` |
-| Channel resolved at publish | `0.2.1-rc.4` · checked October 27, 2026 · 19:35 UTC |
-| Tested plugin revision | `e869771` |
+| Channel resolved at publish | `0.2.1-rc.5` · checked October 29, 2026 · 14:37 UTC |
+| Tested plugin revision | `2d0f537` |
 | Unit tests | passed |
 | Real-DSH compatibility canary | passed |
 | Installation smoke | passed |
-| Verification time | October 27, 2026 · 19:35 UTC |
+| Verification time | October 29, 2026 · 14:37 UTC |
 | Test environment | Node.js v22.22.3 · darwin 27.0.0 arm64 |
 
 [Machine-readable compatibility][compatibility] ·
-[Verification log](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261027T1933-dsh-0.2.2-alpha.2.log)
+[Verification log](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261029T1435-dsh-0.2.1-rc.5.log)
 
 We track DSH's `next` channel through release monitoring and
 maintainer-run verification. DSH keeps its native question cards,
@@ -553,23 +553,23 @@ dsh-ping 负责提醒你。问题卡片、回答和审批决定，继续交给 D
 <!-- dsh-compat-zh:start -->
 ## DSH 支持速览
 
-**✅ 已随 DSH `0.2.2-alpha.2` 验证**
+**✅ 已随 DSH `0.2.1-rc.5` 验证**
 
-_`next` 检查于 2026-10-27 19:35 UTC · 插件 `e869771`_
+_`next` 检查于 2026-10-29 14:37 UTC · 插件 `2d0f537`_
 
 | 项目 | 已发布结果 |
 |---|---|
 | 跟踪的发布渠道 | `next` |
-| 发布时渠道解析 | `0.2.1-rc.4` · 检查于 2026-10-27 19:35 UTC |
-| 被测插件修订 | `e869771` |
+| 发布时渠道解析 | `0.2.1-rc.5` · 检查于 2026-10-29 14:37 UTC |
+| 被测插件修订 | `2d0f537` |
 | 单元测试 | 通过 |
 | 真实 DSH 兼容性 canary | 通过 |
 | 安装冒烟测试 | 通过 |
-| 验证时间 | 2026-10-27 19:35 UTC |
+| 验证时间 | 2026-10-29 14:37 UTC |
 | 测试环境 | Node.js v22.22.3 · darwin 27.0.0 arm64 |
 
 [机器可读兼容性数据][compatibility] ·
-[验证日志](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261027T1933-dsh-0.2.2-alpha.2.log)
+[验证日志](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261029T1435-dsh-0.2.1-rc.5.log)
 
 我们通过发布监控与维护者执行的验证跟踪 DSH 的 `next` 渠道。
 DSH 保留原生问题卡片、回答与审批处理；dsh-ping 只负责通知。
