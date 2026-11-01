@@ -2,7 +2,7 @@
 
 English · [简体中文](#简体中文)
 
-[![dsh.so install · dsh 0.1.7-rc.2](https://www.dsh.so/badge/install/dsh-ping@0.1.7-rc.2.svg)](https://www.dsh.so/artifact/dsh-ping/)
+[![dsh.so install · dsh 0.2.1-rc.5](https://www.dsh.so/badge/install/dsh-ping@0.2.1-rc.5.svg)](https://www.dsh.so/artifact/dsh-ping/)
 [![dsh.so risk](https://www.dsh.so/badge/dsh-ping.svg)](https://www.dsh.so/artifact/dsh-ping/)
 
 Independently listed on [dsh.so](https://www.dsh.so/artifact/dsh-ping/) —
@@ -533,7 +533,7 @@ MIT — see [LICENSE](LICENSE).
 
 # 简体中文
 
-[![dsh.so install · dsh 0.1.7-rc.2](https://www.dsh.so/badge/install/dsh-ping@0.1.7-rc.2.svg)](https://www.dsh.so/artifact/dsh-ping/)]
+[![dsh.so install · dsh 0.2.1-rc.5](https://www.dsh.so/badge/install/dsh-ping@0.2.1-rc.5.svg)](https://www.dsh.so/artifact/dsh-ping/)]
 [![dsh.so risk](https://www.dsh.so/badge/dsh-ping.svg)](https://www.dsh.so/artifact/dsh-ping/)]
 
 另由 [dsh.so](https://www.dsh.so/artifact/dsh-ping/) 独立收录：第三方沙箱安装/运行验证与自动安全扫描，最新结论以其页面为准。
