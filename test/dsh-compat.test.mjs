@@ -241,8 +241,11 @@ async function runCanary(directory) {
       '✅ Done: Compatibility canary (turn 1)',
     ])
 
+    // dsh 0.2.2-rc.2 removed create/resume ownership parameters and
+    // AgentRegistry.roots()/isOwnedBy(): direct factory creation makes an
+    // independent live instance, and the session header's origin is the
+    // subagent classification the plugin keys on.
     const child = await h.create('child', {
-      parentAgent: root,
       meta: {
         origin: 'subagent',
         parentSession: root.id,
@@ -250,7 +253,8 @@ async function runCanary(directory) {
       },
     })
 
-    assert.ok(!h.ctx.agents.roots().includes(child))
+    assert.ok(h.ctx.agents.list().includes(child))
+    assert.equal(child.session.header.origin, 'subagent')
     await h.drive(child)
     await h.flush()
     assert.equal(h.attempts.length, 1, 'Child completion must not notify')
@@ -427,12 +431,13 @@ async function runCanary(directory) {
 
     const parent = await h.create('lineage-parent')
     const root = await h.create('lineage-root', {
-      // No parentAgent and no subagent origin: a runtime root with fork
+      // No subagent origin: an ordinary live runtime root with fork
       // lineage — the exact case the origin-based skip must NOT silence.
       meta: { parentSession: parent.id },
     })
 
-    assert.ok(h.ctx.agents.roots().includes(root))
+    assert.ok(h.ctx.agents.list().includes(root))
+    assert.notEqual(root.session.header.origin, 'subagent')
     h.ctx.sessionTitle.rename(root.session, 'Lineage root')
 
     await h.drive(root)
