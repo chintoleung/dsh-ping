@@ -3,6 +3,26 @@
   "channel": "next",
   "records": [
     {
+      "status": "passed",
+      "dshVersion": "0.2.2-rc.3",
+      "testkitVersion": "0.2.2-rc.3",
+      "pluginVersion": "0.1.2",
+      "pluginCommit": "8b1cdfbf4d605fe3b9f4b873af69953eb0c753d0",
+      "installRef": "github:chintoleung/dsh-ping#8b1cdfbf4d605fe3b9f4b873af69953eb0c753d0",
+      "node": "v24.21.0",
+      "platform": "darwin 27.2.0 arm64",
+      "unitTests": "passed",
+      "canary": "passed",
+      "verifiedAt": "2026-11-17T02:43:21.934Z",
+      "unitTestsPassed": 72,
+      "canaryChecksPassed": 8,
+      "smoke": "passed",
+      "results": "compat/logs/20261117T0242-dsh-0.2.2-rc.3.results.json",
+      "channelVersion": "0.2.2-rc.3",
+      "channelCheckedAt": "2026-11-17T02:43:21.934Z",
+      "evidence": "compat/logs/20261117T0242-dsh-0.2.2-rc.3.log"
+    },
+    {
       "status": "pending",
       "dshVersion": "0.2.2-rc.3",
       "testkitVersion": "0.2.2-rc.3",
@@ -340,6 +360,6 @@
       "evidence": "compat/logs/20260925T0530-dsh-0.1.7-rc.2.log"
     }
   ],
-  "channelVersion": "0.2.2-rc.1",
-  "channelCheckedAt": "2026-11-04T10:35:04.182Z"
+  "channelVersion": "0.2.2-rc.3",
+  "channelCheckedAt": "2026-11-17T02:43:21.934Z"
 }

@@ -27,19 +27,23 @@ and approval decisions.
 <!-- dsh-compat:start -->
 ## DSH support at a glance
 
-**⏳ Verification pending: DSH `0.2.2-rc.3`**
+**✅ Verified with DSH `0.2.2-rc.3`**
+
+_`next` as checked November 17, 2026 · 02:43 UTC · Plugin `8b1cdfb`_
 
 | Check | Published result |
 |---|---|
 | Tracked release channel | `next` |
-| Tested plugin revision | `8c6962b` |
-| Unit tests | skipped |
-| Real-DSH compatibility canary | skipped |
-| Verification time | November 17, 2026 · 02:42 UTC |
+| Channel resolved at publish | `0.2.2-rc.3` · checked November 17, 2026 · 02:43 UTC |
+| Tested plugin revision | `8b1cdfb` |
+| Unit tests | 72 passed |
+| Real-DSH compatibility canary | 8 passed; none skipped |
+| Installation smoke | passed |
+| Verification time | November 17, 2026 · 02:43 UTC |
 | Test environment | Node.js v24.21.0 · darwin 27.2.0 arm64 |
 
 [Machine-readable compatibility][compatibility] ·
-_no evidence reference published_
+[Verification log](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261117T0242-dsh-0.2.2-rc.3.log)
 
 We track DSH's `next` channel through release monitoring and
 maintainer-run verification. DSH keeps its native question cards,
@@ -549,19 +553,23 @@ dsh-ping 负责提醒你。问题卡片、回答和审批决定，继续交给 D
 <!-- dsh-compat-zh:start -->
 ## DSH 支持速览
 
-**⏳ 验证进行中：DSH `0.2.2-rc.3`**
+**✅ 已随 DSH `0.2.2-rc.3` 验证**
+
+_`next` 检查于 2026-11-17 02:43 UTC · 插件 `8b1cdfb`_
 
 | 项目 | 已发布结果 |
 |---|---|
 | 跟踪的发布渠道 | `next` |
-| 被测插件修订 | `8c6962b` |
-| 单元测试 | 跳过 |
-| 真实 DSH 兼容性 canary | 跳过 |
-| 验证时间 | 2026-11-17 02:42 UTC |
+| 发布时渠道解析 | `0.2.2-rc.3` · 检查于 2026-11-17 02:43 UTC |
+| 被测插件修订 | `8b1cdfb` |
+| 单元测试 | 72 通过 |
+| 真实 DSH 兼容性 canary | 8 通过；无跳过 |
+| 安装冒烟测试 | 通过 |
+| 验证时间 | 2026-11-17 02:43 UTC |
 | 测试环境 | Node.js v24.21.0 · darwin 27.2.0 arm64 |
 
 [机器可读兼容性数据][compatibility] ·
-_未发布证据引用_
+[验证日志](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261117T0242-dsh-0.2.2-rc.3.log)
 
 我们通过发布监控与维护者执行的验证跟踪 DSH 的 `next` 渠道。
 DSH 保留原生问题卡片、回答与审批处理；dsh-ping 只负责通知。
