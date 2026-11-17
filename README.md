@@ -27,23 +27,19 @@ and approval decisions.
 <!-- dsh-compat:start -->
 ## DSH support at a glance
 
-**✅ Verified with DSH `0.2.2-rc.1`**
-
-_`next` as checked November 4, 2026 · 10:35 UTC · Plugin `151d9e9`_
+**⏳ Verification pending: DSH `0.2.2-rc.3`**
 
 | Check | Published result |
 |---|---|
 | Tracked release channel | `next` |
-| Channel resolved at publish | `0.2.2-rc.1` · checked November 4, 2026 · 10:35 UTC |
-| Tested plugin revision | `151d9e9` |
-| Unit tests | passed |
-| Real-DSH compatibility canary | passed |
-| Installation smoke | passed |
-| Verification time | November 4, 2026 · 10:35 UTC |
-| Test environment | Node.js v22.22.3 · darwin 27.0.0 arm64 |
+| Tested plugin revision | `8c6962b` |
+| Unit tests | skipped |
+| Real-DSH compatibility canary | skipped |
+| Verification time | November 17, 2026 · 02:42 UTC |
+| Test environment | Node.js v24.21.0 · darwin 27.2.0 arm64 |
 
 [Machine-readable compatibility][compatibility] ·
-[Verification log](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261104T1034-dsh-0.2.2-rc.1.log)
+_no evidence reference published_
 
 We track DSH's `next` channel through release monitoring and
 maintainer-run verification. DSH keeps its native question cards,
@@ -553,23 +549,19 @@ dsh-ping 负责提醒你。问题卡片、回答和审批决定，继续交给 D
 <!-- dsh-compat-zh:start -->
 ## DSH 支持速览
 
-**✅ 已随 DSH `0.2.2-rc.1` 验证**
-
-_`next` 检查于 2026-11-04 10:35 UTC · 插件 `151d9e9`_
+**⏳ 验证进行中：DSH `0.2.2-rc.3`**
 
 | 项目 | 已发布结果 |
 |---|---|
 | 跟踪的发布渠道 | `next` |
-| 发布时渠道解析 | `0.2.2-rc.1` · 检查于 2026-11-04 10:35 UTC |
-| 被测插件修订 | `151d9e9` |
-| 单元测试 | 通过 |
-| 真实 DSH 兼容性 canary | 通过 |
-| 安装冒烟测试 | 通过 |
-| 验证时间 | 2026-11-04 10:35 UTC |
-| 测试环境 | Node.js v22.22.3 · darwin 27.0.0 arm64 |
+| 被测插件修订 | `8c6962b` |
+| 单元测试 | 跳过 |
+| 真实 DSH 兼容性 canary | 跳过 |
+| 验证时间 | 2026-11-17 02:42 UTC |
+| 测试环境 | Node.js v24.21.0 · darwin 27.2.0 arm64 |
 
 [机器可读兼容性数据][compatibility] ·
-[验证日志](https://github.com/chintoleung/dsh-ping/blob/master/compat/logs/20261104T1034-dsh-0.2.2-rc.1.log)
+_未发布证据引用_
 
 我们通过发布监控与维护者执行的验证跟踪 DSH 的 `next` 渠道。
 DSH 保留原生问题卡片、回答与审批处理；dsh-ping 只负责通知。
